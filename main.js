@@ -426,8 +426,6 @@
     var garageBook = document.getElementById("garage-book");
     var garageStory = document.getElementById("garage-story");
     var garageNote = document.getElementById("garage-note");
-    var garageOutline = document.getElementById("garage-outline");
-    var garageSketch = document.getElementById("garage-sketch");
   var garageCars = [
     {
       shot: "shot-230",
@@ -443,7 +441,6 @@
         { src: "assets/bmw-230.jpg", pos: "36% 56%" }
       ],
       facts: [["Кузов", "Купе"], ["Места", "4"], ["Мотор", "2.0 Turbo, 252 л.с."], ["Коробка", "Автомат"], ["Привод", "Полный"], ["Топливо", "Бензин"]],
-      side: "assets/silhouettes/bmw-230-line.png?v=3",
       story: [
         { part: "body", text: "Короткое купе и низкая посадка. Четыре места: сзади нормально на час-два, не на трассу втроём с сумками." },
         { part: "wheel", text: "Полный привод и автомат. По городу и на мокром не выбираете, какая ось тянет." },
@@ -460,7 +457,6 @@
       alt: "BMW 530i",
       frames: null,
       facts: [["Кузов", "Седан"], ["Места", "5"], ["Мотор", "2.0, 252 л.с."], ["Коробка", "Автомат"], ["Привод", "Задний"], ["Топливо", "Бензин"]],
-      side: "assets/silhouettes/bmw-530-line.png",
       story: [
         { part: "body", text: "Три объёма и нормальный задний ряд. Если едете вчетвером с сумками, купе уже тесно — здесь спокойнее." },
         { part: "wheel", text: "Задний привод и автомат. На сухом асфальте нос легче, чем у полноприводных соседей по парку." },
@@ -477,7 +473,6 @@
       alt: "Audi Q5",
       frames: null,
       facts: [["Кузов", "Кроссовер"], ["Места", "5"], ["Мотор", "2.0"], ["Коробка", "Автомат"], ["Привод", "Полный"], ["Топливо", "Бензин"]],
-      side: "assets/silhouettes/audi-q5-line.png",
       story: [
         { part: "body", text: "Выше седана и короче большого X5. Во дворе проще развернуться, бордюр не цепляет так, как на низкой машине." },
         { part: "wheel", text: "Полный привод и автомат. Зимой и на мокром это главный довод, не цифра разгона." },
@@ -498,7 +493,6 @@
         { src: "assets/audi-a7.jpg", pos: "40% 66%" }
       ],
       facts: [["Кузов", "Лифтбек"], ["Места", "5"], ["Комплектация", "S line"], ["Год", "2022"]],
-      side: "assets/silhouettes/audi-a7-line.png?v=3",
       story: [
         { part: "body", text: "Лифтбек: крышка открывается вместе со стеклом. Багажник больше, чем у купе, и в нём пять мест." },
         { part: "glass", text: "S line — это бампер, пороги и салон, не отдельный мотор. Цифры двигателя здесь не ставим: их нет в карточке машины." }
@@ -514,7 +508,6 @@
       alt: "Audi A6",
       frames: null,
       facts: [["Кузов", "Седан"], ["Места", "5"], ["Мотор", "2.0"], ["Коробка", "Автомат"], ["Привод", "Полный"], ["Топливо", "Бензин"]],
-      side: "assets/silhouettes/audi-a6-line.png?v=4",
       story: [
         { part: "body", text: "Для трассы и аэропорта. Сзади трое не сидят в обнимку, чемоданы встают без тетриса." },
         { part: "glass", text: "Стекло большое, капот длинный. Это рабочий седан, не витрина: ехать в нём несколько часов нормально." },
@@ -535,7 +528,6 @@
         { src: "assets/bmw-840.jpg", pos: "68% 62%" }
       ],
       facts: [["Кузов", "Гран купе"], ["Места", "5"], ["Привод", "Полный"], ["Год", "2022"]],
-      side: "assets/silhouettes/bmw-840-line.png?v=4",
       story: [
         { part: "body", text: "Длинное гран-купе. Пять мест и низкая посадка: на трассе лежит ровно, в тесный двор заходит осторожнее обычного седана." },
         { part: "wheel", text: "Полный привод. Топливо и отдачу мотора не дописываем — в карточке их нет, называем при брони." }
@@ -555,7 +547,6 @@
         { src: "assets/bmw-x4.jpg", pos: "66% 60%" }
       ],
       facts: [["Кузов", "Кроссовер"], ["Места", "5"], ["Мотор", "3.0"], ["Привод", "Полный"], ["Топливо", "Бензин"], ["Год", "2022"]],
-      side: "assets/silhouettes/bmw-x4-line.png?v=3",
       story: [
         { part: "body", text: "Кроссовер с посадкой выше седана. Пять мест, сзади не купе: колени не упираются в спинку в первые десять минут." },
         { part: "lamp", text: "Мотор 3.0, бензин, полный привод. Это уже не четвёрка: на обгоне запас заметнее, чем у 230." },
@@ -572,7 +563,6 @@
       alt: "BMW X5 xDrive",
       frames: null,
       facts: [["Кузов", "Кроссовер"], ["Места", "5"], ["Мотор", "3.0"], ["Коробка", "Автомат"], ["Привод", "Полный"], ["Топливо", "Бензин"]],
-      side: "assets/silhouettes/bmw-x5-line.png",
       story: [
         { part: "body", text: "Если людей и багажа много, это он, не X4. Задний ряд взрослый, пол багажника ровный." },
         { part: "lamp", text: "3.0, бензин, шесть цилиндров. Не дизель. Точную отдачу говорим по машине, которая свободна на ваши даты." },
@@ -595,20 +585,6 @@
       garagePhotos.appendChild(frame);
       return frame;
     });
-    function paintSilhouette(target, car, alt) {
-      if (!target) return;
-      target.innerHTML = "";
-      var img = document.createElement("img");
-      img.src = car.side;
-      img.alt = alt;
-      target.appendChild(img);
-    }
-
-    function paintOutline(car) {
-      paintSilhouette(garageOutline, car, "");
-      paintSilhouette(garageSketch, car, car.alt);
-    }
-
     function visibleSlots() {
       return garageSlots.filter(function (slot) { return !slot.hidden; });
     }
@@ -640,7 +616,7 @@
     function noteText(car) {
       return car.frames
         ? "Фото этой машины — ниже. Листайте, если нужно рассмотреть."
-        : "Живого кадра пока нет. Ниже — очертание, фото пришлём до подачи.";
+        : "Фото пришлём до подачи.";
     }
 
     function pinBox(el, text, blank) {
@@ -704,12 +680,10 @@
       if (!garageTicks) return;
       garageTicks.innerHTML = "";
       if (!car.frames || !car.frames.length) {
-        garageStage.classList.add("is-single", "is-sketch");
-        if (garageSketch) garageSketch.hidden = false;
+        garageStage.classList.add("is-single", "is-empty");
         return;
       }
-      garageStage.classList.remove("is-sketch");
-      if (garageSketch) garageSketch.hidden = true;
+      garageStage.classList.remove("is-empty");
       car.frames.forEach(function (_, i) {
         var tick = document.createElement("button");
         tick.type = "button";
@@ -877,7 +851,6 @@
         pinBox(garagePrice, priceText, blank);
         pinBox(garageLine, car.line, blank);
         if (garageBook) garageBook.setAttribute("data-car", car.book);
-        paintOutline(car);
         var storyNodes = paintStory(car, blank);
         var factValues = paintFacts(car, blank);
         pinBox(garageNote, caption, blank);
