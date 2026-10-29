@@ -3,334 +3,233 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>AutoTime — аренда авто в Минске с доставкой 24/7</title>
+    <title>AutoTime — не владей, выбирай</title>
     <meta
       name="description"
-      content="Аренда автомобилей в Минске: от городского класса до статусных BMW и Audi. Доставка 24/7 в любую точку, полное КАСКО в цене. +375 33 333-40-90."
+      content="AutoTime привозит BMW и Audi по Минску круглосуточно. Полное КАСКО уже в цене. От 250 BYN за сутки. +375 33 333-40-90."
     />
-    <meta name="theme-color" content="#070b14" />
-    <meta property="og:title" content="AutoTime — авто к вам, Минск, 24/7" />
-    <meta
-      property="og:description"
-      content="Доставим автомобиль в любую точку Минска. Полное КАСКО уже в стоимости. От городского класса до статусных купе."
-    />
-    <meta property="og:type" content="website" />
-    <meta property="og:locale" content="ru_BY" />
+    <meta name="theme-color" content="#0a0a0a" />
     <link rel="icon" href="favicon.svg" type="image/svg+xml" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Unbounded:wght@500;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Unbounded:wght@500;600;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="styles.css?v=59" />
     <script>
       document.documentElement.classList.add("js");
-    </script>
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "AutoRental",
-        "name": "AutoTime",
-        "areaServed": "Минск",
-        "telephone": "+375333334090",
-        "openingHours": "Mo-Su 00:00-23:59",
-        "description": "Аренда автомобилей в Минске с круглосуточной доставкой и полным КАСКО."
-      }
+      (function () {
+        var ua = navigator.userAgent || "";
+        var byAgent = /Android|iPhone|iPad|iPod|Mobile|IEMobile|BlackBerry|Opera Mini|webOS/i.test(ua);
+        var ipadAsMac = navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1;
+        var coarse = window.matchMedia("(pointer: coarse)").matches;
+        var shortSide = Math.min(window.screen.width || 0, window.screen.height || 0);
+        var handheldScreen = coarse && shortSide > 0 && shortSide <= 1024;
+        if (byAgent || ipadAsMac || handheldScreen) {
+          document.documentElement.classList.add("is-handheld", "no-boot");
+        } else if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+          document.documentElement.classList.add("no-boot");
+        }
+      })();
     </script>
   </head>
   <body>
+    <div class="handheld-gate">
+      <div class="handheld-gate-card">
+        <img src="assets/logo-mark.svg" alt="" width="112" height="47" />
+        <p class="kicker">AutoTime</p>
+        <h1>Только с компьютера</h1>
+        <p>С телефона и планшета сайт не открывается. Зайдите с ноутбука или ПК.</p>
+        <a class="btn" href="tel:+375333334090">+375&nbsp;33&nbsp;333-40-90</a>
+      </div>
+    </div>
+    <div class="boot" id="boot" aria-hidden="true">
+      <div class="boot-mark">
+        <img src="assets/logo-mark.svg" alt="" width="112" height="47" />
+        <span>AutoTime</span>
+      </div>
+    </div>
     <a class="skip" href="#main">К содержанию</a>
 
     <header class="header">
       <div class="nav-shell">
         <a class="logo" href="#top" aria-label="AutoTime, наверх">
-          <img class="logo-mark" src="assets/logo-mark.svg" alt="" width="68" height="40" />
+          <img class="logo-mark" src="assets/logo-mark.svg" alt="" width="86" height="36" />
           <span>AutoTime</span>
         </a>
-
-        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav">
-          <span class="sr">Меню</span>
-          <i></i><i></i>
-        </button>
-
-        <nav class="nav" id="nav">
-          <a href="#park">Парк</a>
-          <a href="#earn">Сдать авто</a>
-          <a href="#how">Как арендовать</a>
-          <a href="#terms">Условия</a>
-          <a href="#faq">Вопросы</a>
-          <a class="nav-phone" href="tel:+375333334090">+375 33 333-40-90</a>
-          <a class="btn btn-sm" href="#book">Забронировать</a>
-        </nav>
+        <div class="nav-tools">
+          <a class="nav-phone" href="tel:+375333334090">+375&nbsp;33&nbsp;333-40-90</a>
+          <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-menu">
+            <span class="sm-toggle-textWrap" aria-hidden="true">
+              <span class="sm-toggle-textInner">
+                <span class="sm-toggle-line">Меню</span>
+                <span class="sm-toggle-line">Закрыть</span>
+              </span>
+            </span>
+            <span class="sm-icon" aria-hidden="true">
+              <span class="sm-icon-line"></span>
+              <span class="sm-icon-line sm-icon-line-v"></span>
+            </span>
+            <span class="sr">Меню</span>
+          </button>
+        </div>
       </div>
     </header>
 
-    <main id="main">
-      <section class="hero" id="top">
-        <div class="hero-media" aria-hidden="true">
-          <video
-            class="hero-video"
-            autoplay
-            muted
-            loop
-            playsinline
-            preload="metadata"
-            poster="assets/hero-poster.jpg"
-          >
-            <source src="assets/hero.mp4" type="video/mp4" />
-          </video>
-          <div class="hero-shade"></div>
-        </div>
-        <div class="container hero-content">
-          <div class="hero-copy">
-            <p class="kicker"><span class="pulse" aria-hidden="true"></span> Минск · подача круглосуточно</p>
-            <h1>Вам не нужно ехать за машиной.</h1>
-            <p class="lead">
-              Привезём автомобиль туда, где вы стоите: к дому, отелю, офису или в аэропорт.
-              От бюджетных до статусных, с подачей к вам. Полное КАСКО уже в цене.
-            </p>
-            <div class="hero-actions">
-              <a class="btn" href="#book">Забронировать</a>
-              <a class="btn btn-ghost" href="tel:+375333334090">+375 33 333-40-90</a>
-            </div>
-            <ul class="hero-points">
-              <li>Ответ в мессенджере, без визита в офис</li>
-              <li>Цена называем до выезда, без доплат на месте</li>
+    <div class="site-menu" data-position="right">
+      <div class="sm-prelayers" aria-hidden="true">
+        <div class="sm-prelayer"></div>
+        <div class="sm-prelayer"></div>
+      </div>
+      <aside id="site-menu" class="staggered-menu-panel" aria-hidden="true" aria-label="Разделы сайта">
+        <nav class="sm-panel-inner">
+          <ul class="sm-panel-list">
+            <li class="sm-panel-itemWrap"><a class="sm-panel-item" href="#park"><span class="sm-panel-itemLabel">Парк</span></a></li>
+            <li class="sm-panel-itemWrap"><a class="sm-panel-item" href="#how"><span class="sm-panel-itemLabel">Как взять</span></a></li>
+            <li class="sm-panel-itemWrap"><a class="sm-panel-item" href="#terms"><span class="sm-panel-itemLabel">Условия</span></a></li>
+            <li class="sm-panel-itemWrap"><a class="sm-panel-item" href="#faq"><span class="sm-panel-itemLabel">Вопросы</span></a></li>
+            <li class="sm-panel-itemWrap"><a class="sm-panel-item" href="#earn"><span class="sm-panel-itemLabel">Заработать</span></a></li>
+          </ul>
+          <a class="btn sm-book" href="#book">Забронировать</a>
+          <div class="sm-socials">
+            <p class="sm-socials-title">Связь</p>
+            <ul class="sm-socials-list">
+              <li><a class="sm-socials-link" href="tel:+375333334090">+375 33 333-40-90</a></li>
+              <li><a class="sm-socials-link" href="https://t.me/+375333334090" target="_blank" rel="noopener">Telegram</a></li>
+              <li><a class="sm-socials-link" href="https://wa.me/375333334090" target="_blank" rel="noopener">WhatsApp</a></li>
+              <li><a class="sm-socials-link" href="viber://chat?number=%2B375333334090">Viber</a></li>
             </ul>
           </div>
-        </div>
+        </nav>
+      </aside>
+    </div>
 
-        <div class="container proof">
-          <div>
-            <strong>24/7</strong>
-            <span>выезжаем ночью и в праздники</span>
+    <main id="main">
+      <section class="stage" id="top">
+        <div class="stage-copy">
+          <p class="kicker">Аренда авто · Минск</p>
+          <h1><span>Не владей —</span><span>выбирай</span></h1>
+          <p class="lead">Привозим машину на&nbsp;день, на&nbsp;неделю или на&nbsp;месяц. Круглосуточно, КАСКО уже в&nbsp;цене.</p>
+          <div class="hero-actions">
+            <a class="btn" href="#park">Смотреть парк</a>
+            <a class="btn btn-ghost" href="#book">Забронировать</a>
           </div>
-          <div>
-            <strong>Минск</strong>
-            <span>город, вокзал, аэропорт</span>
-          </div>
-          <div>
-            <strong>КАСКО</strong>
-            <span>полная страховка в стоимости</span>
-          </div>
-          <div>
-            <strong>Не владей</strong>
-            <span>выбирай машину под день</span>
-          </div>
+        </div>
+        <div class="stage-view" id="stage-view" aria-hidden="true">
+          <canvas></canvas>
         </div>
       </section>
 
-      <section class="finder" id="pick">
+      <section class="park-intro" id="park">
+        <div class="container park-head">
+          <div>
+            <p class="eyebrow">Парк</p>
+            <h2>Любая тачка —<br />один бренд</h2>
+          </div>
+        </div>
         <div class="container">
-          <form class="finder-card book-form reveal" novalidate>
-            <div class="finder-copy">
-              <p class="eyebrow">Бронь</p>
-              <h2>Не владей — выбирай.</h2>
-              <p>Машина, даты и телефон. Цену подтверждаем до подачи, оплата на сайте не нужна.</p>
-            </div>
-            <div class="finder-fields">
-              <label>
-                Авто
-                <select name="car">
-                  <option value="Пока не выбрал — подберите">Подберите машину</option>
-                  <option value="BMW 230 xDrive, 2024">BMW 230 xDrive</option>
-                  <option value="Audi A7 S line, 2022">Audi A7 S line</option>
-                  <option value="BMW X4 M40i, 2022">BMW X4 M40i</option>
-                  <option value="BMW 840 xDrive, 2022">BMW 840 xDrive</option>
-                </select>
-              </label>
-              <label>
-                Получение
-                <input name="date" type="date" />
-              </label>
-              <label>
-                Возврат
-                <input name="date_back" type="date" />
-              </label>
-              <label>
-                Имя
-                <input name="name" type="text" autocomplete="name" placeholder="Как к вам обращаться" required />
-              </label>
-              <label>
-                Телефон
-                <input name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+375" required />
-              </label>
-              <button class="btn" type="submit">Подобрать авто</button>
-            </div>
-            <div class="finder-links">
-              <a class="btn btn-ghost" href="https://t.me/+375333334090" target="_blank" rel="noopener">Telegram</a>
-              <a class="btn btn-ghost" href="#park">Весь автопарк</a>
-            </div>
-            <p class="form-success" hidden role="status">
-              <strong>Заявка принята.</strong>
-              Перезвоним и подтвердим машину и время. Если удобнее сразу —
-              <a href="tel:+375333334090">+375 33 333-40-90</a>.
-            </p>
+          <form class="price-filter" id="price-filter">
+            <label>
+              Минимальная стоимость аренды
+              <span><input name="min" type="number" inputmode="numeric" min="0" step="10" placeholder="от" aria-label="Минимальная стоимость, BYN" /><em>BYN</em></span>
+            </label>
+            <label>
+              Максимальная
+              <span><input name="max" type="number" inputmode="numeric" min="0" step="10" placeholder="до" aria-label="Максимальная стоимость, BYN" /><em>BYN</em></span>
+            </label>
           </form>
+          <p class="filter-status" id="filter-status" aria-live="polite"></p>
         </div>
       </section>
 
-      <section class="section park" id="park">
-        <div class="container">
-          <div class="section-head reveal">
-            <div>
-              <p class="eyebrow">Парк</p>
-              <h2>Любая тачка — один бренд.</h2>
-            </div>
-            <p>Четыре машины, которые можно забронировать сразу. Цена на карточке — за сутки.</p>
-          </div>
-
-          <div class="filters reveal" role="group" aria-label="Фильтр парка">
-            <button class="chip is-active" type="button" data-filter="all" aria-pressed="true">Все</button>
-            <button class="chip" type="button" data-filter="coupe" aria-pressed="false">Купе</button>
-            <button class="chip" type="button" data-filter="liftback" aria-pressed="false">Лифтбек</button>
-            <button class="chip" type="button" data-filter="crossover" aria-pressed="false">Кроссовер</button>
-            <button class="chip" type="button" data-filter="grand" aria-pressed="false">Гран купе</button>
-          </div>
-
-          <div class="fleet">
-            <article class="car reveal" data-class="coupe">
-              <div class="car-media">
-                <img src="assets/bmw-230.jpg" alt="Чёрный BMW 230 xDrive, 2024" loading="lazy" decoding="async" />
-                <span class="tag">Купе</span>
-              </div>
-              <div class="car-body">
-                <div class="car-title">
-                  <h3>BMW 230 xDrive</h3>
-                  <span>2024</span>
-                </div>
-                <p>2.0 Turbo · 252 л.с. · автомат · 4 места</p>
-                <div class="car-foot">
-                  <p class="price">250 <small>BYN / сутки</small></p>
-                  <button class="btn btn-sm" type="button" data-car="BMW 230 xDrive, 2024">Забронировать</button>
-                </div>
-              </div>
-            </article>
-
-            <article class="car reveal" data-class="liftback">
-              <div class="car-media">
-                <img src="assets/audi-a7.jpg" alt="Белый Audi A7 S line, 2022" loading="lazy" decoding="async" />
-                <span class="tag">Лифтбек</span>
-              </div>
-              <div class="car-body">
-                <div class="car-title">
-                  <h3>Audi A7 S line</h3>
-                  <span>2022</span>
-                </div>
-                <p>S line · лифтбек · 5 мест</p>
-                <div class="car-foot">
-                  <p class="price">300 <small>BYN / сутки</small></p>
-                  <button class="btn btn-sm" type="button" data-car="Audi A7 S line, 2022">Забронировать</button>
-                </div>
-              </div>
-            </article>
-
-            <article class="car reveal" data-class="crossover">
-              <div class="car-media">
-                <img src="assets/bmw-x4.jpg" alt="Чёрный BMW X4 M40i" loading="lazy" decoding="async" />
-                <span class="tag">Кроссовер</span>
-              </div>
-              <div class="car-body">
-                <div class="car-title">
-                  <h3>BMW X4 M40i</h3>
-                  <span>2022</span>
-                </div>
-                <p>3.0 · xDrive · высокий клиренс · 5 мест</p>
-                <div class="car-foot">
-                  <p class="price">400 <small>BYN / сутки</small></p>
-                  <button class="btn btn-sm" type="button" data-car="BMW X4 M40i, 2022">Забронировать</button>
-                </div>
-              </div>
-            </article>
-
-            <article class="car reveal" data-class="grand">
-              <div class="car-media">
-                <img src="assets/bmw-840.jpg" alt="Чёрный BMW 840 xDrive, 2022" loading="lazy" decoding="async" />
-                <span class="tag">Гран купе</span>
-              </div>
-              <div class="car-body">
-                <div class="car-title">
-                  <h3>BMW 840 xDrive</h3>
-                  <span>2022</span>
-                </div>
-                <p>xDrive · Gran Coupé · 5 мест</p>
-                <div class="car-foot">
-                  <p class="price">350 <small>BYN / сутки</small></p>
-                  <button class="btn btn-sm" type="button" data-car="BMW 840 xDrive, 2022">Забронировать</button>
-                </div>
-              </div>
-            </article>
-          </div>
-
+      <div class="garage" id="garage">
+        <div class="garage-layout">
+        <div class="garage-menu" role="tablist" aria-label="Машины">
+          <button class="garage-slot car is-on" type="button" role="tab" aria-selected="true" data-price="250">
+            <span>BMW 230</span><em>250 BYN</em>
+          </button>
+          <button class="garage-slot car" type="button" role="tab" aria-selected="false" data-price="280">
+            <span>BMW 530</span><em>280 BYN</em>
+          </button>
+          <button class="garage-slot car" type="button" role="tab" aria-selected="false" data-price="290">
+            <span>Audi Q5</span><em>290 BYN</em>
+          </button>
+          <button class="garage-slot car" type="button" role="tab" aria-selected="false" data-price="300">
+            <span>Audi A7</span><em>300 BYN</em>
+          </button>
+          <button class="garage-slot car" type="button" role="tab" aria-selected="false" data-price="320">
+            <span>Audi A6</span><em>320 BYN</em>
+          </button>
+          <button class="garage-slot car" type="button" role="tab" aria-selected="false" data-price="350">
+            <span>BMW 840</span><em>350 BYN</em>
+          </button>
+          <button class="garage-slot car" type="button" role="tab" aria-selected="false" data-price="400">
+            <span>BMW X4</span><em>400 BYN</em>
+          </button>
+          <button class="garage-slot car" type="button" role="tab" aria-selected="false" data-price="480">
+            <span>BMW X5</span><em>480 BYN</em>
+          </button>
         </div>
-      </section>
-
-      <section class="section earn" id="earn">
-        <div class="container">
-          <div class="earn-top">
-            <div class="reveal">
-              <p class="eyebrow">Сдать авто</p>
-              <h2>Ваш автомобиль может зарабатывать.</h2>
+        <div class="garage-screen" id="garage-screen">
+          <div class="garage-sheet">
+          <div class="garage-hud" id="garage-hud">
+            <p class="garage-year" id="garage-year">2024</p>
+            <h3 class="garage-name" id="garage-name">BMW 230 xDrive</h3>
+            <p class="garage-price" id="garage-price">250 BYN / сутки</p>
+            <p class="garage-line" id="garage-line">Короткое купе на каждый день. Четыре места, турбо и полный привод.</p>
+            <div class="garage-story" id="garage-story"></div>
+            <p class="garage-note" id="garage-note">Фото этой машины — ниже. Листайте, если нужно рассмотреть.</p>
+            <dl class="garage-facts" id="garage-facts">
+              <div><dt>Кузов</dt><dd>Купе</dd></div>
+              <div><dt>Места</dt><dd>4</dd></div>
+              <div><dt>Мотор</dt><dd>2.0 Turbo, 252 л.с.</dd></div>
+              <div><dt>Коробка</dt><dd>Автомат</dd></div>
+              <div><dt>Привод</dt><dd>Полный</dd></div>
+              <div><dt>Топливо</dt><dd>Бензин</dd></div>
+            </dl>
+            <div class="garage-actions">
+              <button class="btn" id="garage-book" type="button" data-car="BMW 230 xDrive, 2024">Забронировать</button>
+              <div class="garage-ticks" id="garage-ticks"></div>
             </div>
-            <p class="earn-lead reveal">
-              Машина стоит во дворе — а могла бы работать. Отдаёте её в управление AutoTime:
-              ищем арендаторов, проверяем водителей и платим за каждые сутки в прокате.
-            </p>
           </div>
-          <div class="earn-points">
-            <article class="reveal">
-              <span>01</span>
-              <h3>Доход без беготни</h3>
-              <p>Заявки, звонки и ключи — на нас. Вам приходит выплата, не переписка с незнакомцами.</p>
-            </article>
-            <article class="reveal">
-              <span>02</span>
-              <h3>Проверка водителей</h3>
-              <p>Возраст, стаж и документы смотрим до выдачи. Залог фиксируем в договоре.</p>
-            </article>
-            <article class="reveal">
-              <span>03</span>
-              <h3>Уход за машиной</h3>
-              <p>Мойка, топливо по регламенту и осмотр после каждой поездки.</p>
-            </article>
+          <figure class="car-outline" id="garage-outline"></figure>
           </div>
-          <aside class="earn-cta reveal">
-            <p>Напишите — скажем, сколько может приносить именно ваша машина.</p>
-            <div class="earn-actions">
-              <a class="btn" href="#book" data-car="Хочу сдать своё авто">Узнать доход</a>
-              <a class="btn btn-ghost" href="https://t.me/+375333334090" target="_blank" rel="noopener">Telegram</a>
-            </div>
-          </aside>
+          <div class="garage-stage shot-230" id="garage-stage">
+            <div class="garage-photos" id="garage-photos"></div>
+            <div class="garage-sketch car-outline" id="garage-sketch" hidden></div>
+            <span class="garage-scan" aria-hidden="true"></span>
+            <button class="garage-nav garage-prev" type="button" aria-label="Предыдущее фото"></button>
+            <button class="garage-nav garage-next" type="button" aria-label="Следующее фото"></button>
+          </div>
         </div>
-      </section>
+        </div>
+      </div>
 
-      <section class="section how" id="how">
+      <section class="sheet" id="how">
         <div class="container">
-          <div class="section-head light-head reveal">
-            <div>
-              <p class="eyebrow">Как арендовать</p>
-              <h2>Четыре шага до ключей.</h2>
-            </div>
-            <p>Встречаемся, чтобы подписать договор и отдать машину. Офис ради очереди не нужен.</p>
+          <div class="sheet-head">
+            <p class="eyebrow">Как взять</p>
+            <h2>Выбрал — забрал — поехал</h2>
+            <p>Встречаемся, чтобы подписать договор и передать машину. В офис для этого ехать не нужно.</p>
           </div>
-          <ol class="steps steps-4">
-            <li class="reveal">
+          <ol class="steps">
+            <li>
               <span>01</span>
               <h3>Выбираете авто</h3>
-              <p>Смотрите парк и отмечаете машину, которая нужна на ваши даты.</p>
+              <p>Смотрите парк и выбираете машину на нужные даты.</p>
             </li>
-            <li class="reveal">
+            <li>
               <span>02</span>
               <h3>Оставляете заявку</h3>
-              <p>Имя, телефон и адрес. Мы подтверждаем, что авто свободно, и называем сумму.</p>
+              <p>Имя, телефон и адрес. Подтверждаем, что авто свободно, и называем сумму.</p>
             </li>
-            <li class="reveal">
+            <li>
               <span>03</span>
               <h3>Подписываем договор</h3>
               <p>Встречаемся, осматриваем машину и подписываем договор аренды.</p>
             </li>
-            <li class="reveal">
+            <li>
               <span>04</span>
               <h3>Получаете ключи</h3>
               <p>Отдаём авто в условленном месте. В конце срока возвращаете его сами или мы забираем.</p>
@@ -339,174 +238,179 @@
         </div>
       </section>
 
-      <section class="section terms" id="terms">
+      <section class="terms" id="terms">
         <div class="container">
-          <div class="section-head reveal">
-            <div>
-              <p class="eyebrow">Условия</p>
-              <h2>Условия аренды</h2>
-            </div>
-            <p>Документы, возраст, залог, пробег и подача.</p>
+          <div class="sheet-head">
+            <p class="eyebrow">Договор</p>
+            <h2>Шесть пунктов до ключей</h2>
+            <p>Не мелкий шрифт в конце страницы. То же самое проговариваем при встрече и пишем в договоре.</p>
           </div>
-
-          <div class="term-grid">
-            <article class="reveal">
-              <h3>Документы</h3>
-              <p>Паспорт и водительское удостоверение. Второй водитель — без доплаты, если он в договоре.</p>
-            </article>
-            <article class="reveal">
-              <h3>Возраст и стаж</h3>
-              <p>От 23 лет и стаж от 2 лет. Для статусного класса иногда просим стаж от 3 лет.</p>
-            </article>
-            <article class="reveal">
-              <h3>Залог</h3>
-              <p>От 300 BYN или холд на карте. Возвращаем после осмотра, обычно в тот же день.</p>
-            </article>
-            <article class="reveal">
-              <h3>Страховка</h3>
-              <p>Полное КАСКО входит в стоимость. Отдельно его покупать не нужно.</p>
-            </article>
-            <article class="reveal">
-              <h3>Пробег и топливо</h3>
-              <p>250 км в сутки включены, дальше 0,50 BYN/км. Бак получаете полный и таким же сдаёте.</p>
-            </article>
-            <article class="reveal">
-              <h3>Подача</h3>
-              <p>По Минску бесплатно от 2 суток, иначе 30 BYN. Аэропорт — 40 BYN. Ночью тариф тот же.</p>
-            </article>
-          </div>
+          <ol class="clauses">
+            <li class="reveal">
+              <span>01</span>
+              <strong>Паспорт</strong>
+              <em>и права</em>
+              <p>Паспорт и водительское удостоверение. Второго водителя вписываем без доплаты.</p>
+            </li>
+            <li class="reveal">
+              <span>02</span>
+              <strong>23+</strong>
+              <em>и стаж от 2 лет</em>
+              <p>Для отдельных машин можем попросить стаж от 3 лет. Говорим об этом до подписания.</p>
+            </li>
+            <li class="reveal">
+              <span>03</span>
+              <strong>300</strong>
+              <em>BYN залог</em>
+              <p>От 300 BYN или блокировка суммы на карте. Возвращаем после осмотра, обычно в тот же день.</p>
+            </li>
+            <li class="reveal">
+              <span>04</span>
+              <strong>КАСКО</strong>
+              <em>уже в цене</em>
+              <p>Полное КАСКО входит в стоимость. Отдельный полис покупать не нужно.</p>
+            </li>
+            <li class="reveal">
+              <span>05</span>
+              <strong>250 км</strong>
+              <em>в сутках</em>
+              <p>Дальше 0,50 BYN за км. Бак получаете полный и таким же сдаёте.</p>
+            </li>
+            <li class="reveal">
+              <span>06</span>
+              <strong>Бесплатно</strong>
+              <em>подача от 2 суток</em>
+              <p>По Минску бесплатно от двух суток, иначе 30 BYN. Аэропорт — 40 BYN. Ночью тариф тот же.</p>
+            </li>
+          </ol>
         </div>
       </section>
 
-      <section class="section faq" id="faq">
-        <div class="container faq-layout">
-          <div class="reveal">
-            <p class="eyebrow">Вопросы</p>
-            <h2>Вопросы</h2>
-            <p class="faq-note">Если своего вопроса нет в списке — позвоните или напишите в Telegram.</p>
-            <div class="faq-actions">
+      <section class="sheet" id="faq">
+        <div class="container">
+          <div class="sheet-head faq-head">
+            <div>
+              <p class="eyebrow">Ответы</p>
+              <h2>Частые вопросы</h2>
+            </div>
+            <div class="row-actions">
               <a class="btn" href="tel:+375333334090">Позвонить</a>
               <a class="btn btn-line" href="https://t.me/+375333334090" target="_blank" rel="noopener">Telegram</a>
             </div>
           </div>
-
-          <div class="faq-list">
-            <div class="faq-item reveal">
-              <button class="faq-q" type="button" aria-expanded="false">
-                Можно ли взять авто на несколько часов?
-                <span aria-hidden="true"></span>
-              </button>
-              <div class="faq-a">
-                <p>Минимальный срок — сутки. Если нужен автомобиль к конкретному часу и обратно вечером, посчитаем сутки и подачу.</p>
-              </div>
+          <div class="faq-board">
+            <div class="faq-index" role="tablist" aria-label="Вопросы">
+              <button class="is-on" id="faq-tab1" type="button" role="tab" aria-selected="true" aria-controls="faq-panel" data-num="01" data-title="Можно ли взять авто на несколько часов?" data-answer="Минимальный срок — сутки. Если машина нужна к конкретному часу и обратно вечером, посчитаем сутки и подачу.">На несколько часов</button>
+              <button id="faq-tab2" type="button" role="tab" aria-selected="false" aria-controls="faq-panel" data-num="02" data-title="Куда привозите машину?" data-answer="В любую точку Минска: двор, паркинг, отель, бизнес-центр, вокзал, Национальный аэропорт. По области скажем стоимость подачи сразу.">Куда привозите</button>
+              <button id="faq-tab3" type="button" role="tab" aria-selected="false" aria-controls="faq-panel" data-num="03" data-title="Страховка уже включена?" data-answer="Да. Полное КАСКО входит в стоимость, отдельно покупать его не нужно. Размер франшизы называем до подписания договора.">Страховка</button>
+              <button id="faq-tab4" type="button" role="tab" aria-selected="false" aria-controls="faq-panel" data-num="04" data-title="Можно ли выехать за границу?" data-answer="Да, если согласуем заранее и будет доплата. Без согласования границу пересекать нельзя: так устроена страховка.">За границу</button>
+              <button id="faq-tab5" type="button" role="tab" aria-selected="false" aria-controls="faq-panel" data-num="05" data-title="Что будет, если задержусь с возвратом?" data-answer="Напишите заранее. До двух часов обычно без доплаты, дальше считаем следующие сутки. Если предупредили, отдельный штраф не берём.">Опоздание</button>
+              <button id="faq-tab6" type="button" role="tab" aria-selected="false" aria-controls="faq-panel" data-num="06" data-title="Поставите детское кресло?" data-answer="Да, поставим по запросу. Напишите об этом при брони, чтобы кресло было в машине к подаче.">Детское кресло</button>
+              <button id="faq-tab7" type="button" role="tab" aria-selected="false" aria-controls="faq-panel" data-num="07" data-title="В каком виде выдаёте машину?" data-answer="Чистой. Если вернёте её сильно грязной, мойка может быть за ваш счёт. Это написано в условиях.">Чистота</button>
             </div>
-            <div class="faq-item reveal">
-              <button class="faq-q" type="button" aria-expanded="false">
-                Куда именно привозите?
-                <span aria-hidden="true"></span>
-              </button>
-              <div class="faq-a">
-                <p>В любую точку Минска: двор, паркинг, отель, бизнес-центр, вокзал, Национальный аэропорт. Область — по согласованию, стоимость подачи скажем сразу.</p>
-              </div>
-            </div>
-            <div class="faq-item reveal">
-              <button class="faq-q" type="button" aria-expanded="false">
-                Что покрывает КАСКО?
-                <span aria-hidden="true"></span>
-              </button>
-              <div class="faq-a">
-                <p>Полное КАСКО на время аренды. Вы не оформляете полис сами и не доплачиваете за него в кассе. Детали франшизы проговариваем до подписания.</p>
-              </div>
-            </div>
-            <div class="faq-item reveal">
-              <button class="faq-q" type="button" aria-expanded="false">
-                Можно ли выехать за границу?
-                <span aria-hidden="true"></span>
-              </button>
-              <div class="faq-a">
-                <p>Да, по предварительному согласованию и с доплатой. Без согласования границу пересекать нельзя — это условие страховки.</p>
-              </div>
-            </div>
-            <div class="faq-item reveal">
-              <button class="faq-q" type="button" aria-expanded="false">
-                Что если задержу возврат?
-                <span aria-hidden="true"></span>
-              </button>
-              <div class="faq-a">
-                <p>Напишите заранее. До 2 часов обычно удерживаем без доплаты, дальше считаем следующие сутки. Штраф «за молчание» не выдумываем, если предупредили.</p>
-              </div>
-            </div>
-            <div class="faq-item reveal">
-              <button class="faq-q" type="button" aria-expanded="false">
-                Детское кресло и мойка?
-                <span aria-hidden="true"></span>
-              </button>
-              <div class="faq-a">
-                <p>Кресло поставим по запросу. Машину выдаём вымытой. Если вернёте сильно грязной после бездорожья, мойка может быть за ваш счёт — предупредим в условиях.</p>
-              </div>
+            <div class="faq-panel" id="faq-panel" role="tabpanel" aria-labelledby="faq-tab1">
+              <p class="faq-num">01</p>
+              <h3>Можно ли взять авто на несколько часов?</h3>
+              <p>Минимальный срок — сутки. Если машина нужна к конкретному часу и обратно вечером, посчитаем сутки и подачу.</p>
             </div>
           </div>
         </div>
       </section>
 
-      <section class="section book" id="book">
+      <section class="earn" id="earn">
+        <div class="container earn-copy">
+          <p class="eyebrow">Заработать</p>
+          <h2>Машина может работать, пока вы ею не пользуетесь</h2>
+          <p class="earn-lead">Отдаёте её в управление. Мы ищем арендаторов, проверяем водителей и платим за каждые сутки в прокате.</p>
+          <div class="earn-points">
+            <article>
+              <span>01</span>
+              <h3>Доход без забот</h3>
+              <p>Заявки, звонки и ключи берём на себя. Вам приходит выплата, а не переписка с незнакомцами.</p>
+            </article>
+            <article>
+              <span>02</span>
+              <h3>Проверка водителей</h3>
+              <p>Возраст, стаж и документы смотрим до выдачи. Сумму залога фиксируем в договоре.</p>
+            </article>
+            <article>
+              <span>03</span>
+              <h3>Уход за авто</h3>
+              <p>Мойка, топливо по регламенту и осмотр после каждой поездки.</p>
+            </article>
+          </div>
+          <div class="earn-actions">
+            <a class="btn" href="#book" data-car="Хочу сдать своё авто">Получить доход</a>
+            <a class="btn btn-ghost" href="https://t.me/+375333334090" target="_blank" rel="noopener">Telegram</a>
+          </div>
+        </div>
+      </section>
+
+      <div class="road" aria-hidden="true">
+        <div class="road-dash"><i></i></div>
+      </div>
+
+      <section class="book" id="book">
         <div class="container book-grid">
-          <div class="reveal">
-            <p class="eyebrow light">Заявка</p>
-            <h2>не копи на мечту — бери в аренду</h2>
-            <p class="book-lead">
-              Та же форма, что в начале страницы. Оплата на сайте не нужна.
-            </p>
-            <a class="phone-link" href="tel:+375333334090">+375 33 333-40-90</a>
+          <div>
+            <p class="eyebrow">Бронь</p>
+            <h2>Куда привезти?</h2>
+            <p class="book-lead">Имя, телефон и адрес. Перезвоним, подтвердим машину и назовём цену. На сайте ничего оплачивать не нужно.</p>
+            <a class="phone-link" href="tel:+375333334090">+375&nbsp;33&nbsp;333-40-90</a>
             <div class="messengers">
               <a class="btn btn-ghost" href="https://t.me/+375333334090" target="_blank" rel="noopener">Telegram</a>
               <a class="btn btn-ghost" href="https://wa.me/375333334090" target="_blank" rel="noopener">WhatsApp</a>
               <a class="btn btn-ghost" href="viber://chat?number=%2B375333334090">Viber</a>
-              <a class="btn btn-ghost" href="tel:+375333334090">Звонок</a>
             </div>
-            <ol class="after">
-              <li>Оставляете контакты и адрес подачи</li>
-              <li>Подтверждаем свободное авто и итоговую цену</li>
-              <li>Привозим к указанному времени</li>
-            </ol>
           </div>
-
-          <form class="form book-form reveal" id="book" novalidate>
+          <form class="form book-form" id="request" novalidate>
             <label>
               Имя
               <input name="name" type="text" autocomplete="name" placeholder="Как к вам обращаться" required />
+              <span class="field-error" hidden>Напишите, как к вам обращаться</span>
             </label>
             <label>
               Телефон
-              <input name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+375" required />
+              <input name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+375 33 000-00-00" required />
+              <span class="field-error" hidden>Введите телефон, чтобы мы могли перезвонить</span>
             </label>
-            <label>
+            <label class="full">
               Автомобиль
               <select name="car">
                 <option value="Пока не выбрал — подберите">Пока не выбрал — подберите</option>
                 <option value="Хочу сдать своё авто">Хочу сдать своё авто</option>
                 <option value="BMW 230 xDrive, 2024">BMW 230 xDrive, 2024 — 250 BYN</option>
+                <option value="BMW 530i, 2021">BMW 530i, 2021 — 280 BYN</option>
+                <option value="Audi Q5, 2022">Audi Q5, 2022 — 290 BYN</option>
                 <option value="Audi A7 S line, 2022">Audi A7 S line, 2022 — 300 BYN</option>
-                <option value="BMW X4 M40i, 2022">BMW X4 M40i, 2022 — 400 BYN</option>
+                <option value="Audi A6, 2021">Audi A6, 2021 — 320 BYN</option>
                 <option value="BMW 840 xDrive, 2022">BMW 840 xDrive, 2022 — 350 BYN</option>
+                <option value="BMW X4 M40i, 2022">BMW X4 M40i, 2022 — 400 BYN</option>
+                <option value="BMW X5 xDrive, 2020">BMW X5 xDrive, 2020 — 480 BYN</option>
               </select>
             </label>
             <label>
-              Дата подачи
+              Получение
               <input name="date" type="date" />
+              <span class="field-error" hidden>Проверьте дату</span>
+            </label>
+            <label>
+              Возврат
+              <input name="date_back" type="date" />
+              <span class="field-error" hidden>Возврат не может быть раньше получения</span>
             </label>
             <label class="full">
               Куда привезти
-              <input name="place" type="text" placeholder="Адрес, отель, аэропорт" />
+              <input name="place" type="text" autocomplete="street-address" placeholder="Адрес, отель, аэропорт" />
             </label>
             <div class="full form-actions">
-              <button class="btn" type="submit">Оставить заявку</button>
-              <p>Перезвоним и подтвердим цену до выезда. Оплата на сайте не нужна.</p>
+              <button class="btn" type="submit">Забронировать</button>
+              <p>Перезвоним и подтвердим цену до выезда.</p>
             </div>
-            <p class="form-success full" hidden role="status">
-              <strong>Заявка принята.</strong>
-              Перезвоним и подтвердим машину, цену и время подачи. Если удобнее сразу —
-              <a href="tel:+375333334090">+375 33 333-40-90</a>.
+            <p class="form-success full" hidden role="status" tabindex="-1">
+              <strong>Бронь принята.</strong>
+              Перезвоним, подтвердим машину, цену и время подачи. Если удобнее сразу —
+              <a href="tel:+375333334090">+375&nbsp;33&nbsp;333-40-90</a>.
             </p>
           </form>
         </div>
@@ -514,51 +418,31 @@
     </main>
 
     <footer class="footer">
-      <div class="container footer-panel">
-        <div class="footer-cta">
-          <p class="eyebrow">На связи круглые сутки</p>
-          <h2>Машина может выехать сегодня.</h2>
-          <p>Полное КАСКО уже в стоимости.</p>
-        </div>
-        <div class="footer-cta-side">
-          <a class="phone-link" href="tel:+375333334090">+375 33 333-40-90</a>
-          <a class="btn" href="#book">Оставить заявку</a>
-        </div>
+      <div class="container footer-row">
+        <a class="logo" href="#top">
+          <img class="logo-mark" src="assets/logo-mark.svg" alt="" width="86" height="36" />
+          <span>AutoTime</span>
+        </a>
+        <p>Не владей — выбирай. Аренда в Минске с подачей к вам, круглосуточно.</p>
+        <a href="tel:+375333334090">+375&nbsp;33&nbsp;333-40-90</a>
       </div>
-      <div class="container footer-grid">
-        <div>
-          <a class="logo" href="#top">
-            <img class="logo-mark" src="assets/logo-mark.svg" alt="" width="68" height="40" />
-            <span>AutoTime</span>
-          </a>
-          <p>Не владей — выбирай. Аренда в Минске, от бюджетных до статусных.</p>
-        </div>
-        <div>
-          <p class="footer-label">Связь</p>
-          <a href="tel:+375333334090">+375 33 333-40-90</a>
-          <a href="https://t.me/+375333334090" target="_blank" rel="noopener">Telegram</a>
-          <a href="https://wa.me/375333334090" target="_blank" rel="noopener">WhatsApp</a>
-          <a href="viber://chat?number=%2B375333334090">Viber</a>
-        </div>
-        <div>
-          <p class="footer-label">На сайте</p>
-          <a href="#park">Парк</a>
-          <a href="#how">Как арендовать</a>
-          <a href="#earn">Сдать авто</a>
+      <div class="container footer-note">
+        <p>Цены на сайте — ориентир и зависят от дат и срока. Точную сумму подтверждаем до подачи.</p>
+        <nav aria-label="Ещё на странице">
+          <a href="#how">Как взять</a>
           <a href="#terms">Условия</a>
-          <a href="#book">Заявка</a>
-        </div>
-      </div>
-      <div class="container footer-bottom">
-        <p>Цены ориентировочные и зависят от дат и срока аренды. Точную сумму подтверждаем до подачи.</p>
+          <a href="#faq">Вопросы</a>
+        </nav>
       </div>
     </footer>
 
     <div class="dock">
       <a href="tel:+375333334090">Позвонить</a>
-      <a href="#book">Заявка</a>
+      <a href="#book">Забронировать</a>
     </div>
 
-    <script src="main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="main.js?v=43"></script>
+    <script src="hero-lines.js?v=5"></script>
   </body>
 </html>
