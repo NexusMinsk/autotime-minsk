@@ -746,6 +746,15 @@
       });
     }
 
+    function warmFrames(car) {
+      if (!car || !car.frames) return;
+      car.frames.forEach(function (frame) {
+        var preload = new Image();
+        preload.src = frame.src;
+        if (preload.decode) preload.decode().catch(function () {});
+      });
+    }
+
     function paintPhoto(animate) {
       var car = garageCars[garageIndex];
       if (!car || !car.frames || !car.frames.length) return;
@@ -753,29 +762,58 @@
       var outgoing = frameEls[frameFront];
       var incoming = frameEls[frameFront ^ 1];
       var frame = car.frames[photoIndex];
-      var img = incoming.querySelector("img");
-      img.src = frame.src;
-      img.alt = car.alt;
-      img.style.setProperty("--pos", frame.pos || "center");
-      if (!animate || reduceMotion) {
-        frameEls.forEach(function (node) { node.classList.remove("is-on", "is-anim"); });
-        incoming.classList.add("is-on");
-      } else {
-        outgoing.classList.add("is-on");
-        outgoing.classList.remove("is-anim");
-        incoming.classList.remove("is-on", "is-anim");
-        void incoming.offsetWidth;
-        incoming.classList.add("is-anim", "is-on");
-        garageStage.classList.remove("is-wiping");
-        void garageStage.offsetWidth;
-        garageStage.classList.add("is-wiping");
-        window.setTimeout(function () {
-          if (token !== wipeToken) return;
-          outgoing.classList.remove("is-on", "is-anim");
-        }, 580);
+      var motion = animate && !reduceMotion;
+
+      function openFrame() {
+        if (token !== wipeToken) return;
+        if (!motion) {
+          frameEls.forEach(function (node) { node.classList.remove("is-on", "is-anim"); });
+          incoming.classList.add("is-on");
+        } else {
+          outgoing.classList.add("is-on");
+          outgoing.classList.remove("is-anim");
+          incoming.classList.remove("is-on");
+          incoming.classList.add("is-anim");
+          void incoming.offsetWidth;
+          incoming.classList.add("is-on");
+          garageStage.classList.remove("is-wiping");
+          void garageStage.offsetWidth;
+          garageStage.classList.add("is-wiping");
+          window.setTimeout(function () {
+            if (token !== wipeToken) return;
+            outgoing.classList.remove("is-on", "is-anim");
+          }, 580);
+        }
+        frameFront ^= 1;
+        markTick();
       }
-      frameFront ^= 1;
-      markTick();
+
+      function reveal() {
+        if (token !== wipeToken) return;
+        if (motion) {
+          outgoing.classList.add("is-on");
+          outgoing.classList.remove("is-anim");
+        }
+        incoming.classList.remove("is-anim", "is-on");
+        preload.alt = car.alt;
+        preload.draggable = false;
+        preload.style.setProperty("--pos", frame.pos || "center");
+        incoming.querySelector(".garage-crop").replaceChildren(preload);
+        void incoming.offsetWidth;
+        window.requestAnimationFrame(function () {
+          if (token !== wipeToken) return;
+          window.requestAnimationFrame(openFrame);
+        });
+      }
+
+      var preload = new Image();
+      preload.src = frame.src;
+      if (preload.decode) preload.decode().then(reveal, reveal);
+      else if (preload.complete) reveal();
+      else {
+        preload.onload = reveal;
+        preload.onerror = reveal;
+      }
     }
 
     function clearPhotoClock() {
@@ -893,6 +931,7 @@
       });
       garageStage.className = "garage-stage " + car.shot;
       renderTicks(car);
+      warmFrames(car);
       paintPhoto(false);
       armPhoto();
       if (typed && garageHud) {
