@@ -614,6 +614,7 @@
     var photoIndex = 0;
     var typeToken = 0;
     var photoTimer = 0;
+    var photoResume = 0;
     var frameFront = 0;
     var wipeToken = 0;
     var frameEls = [0, 1].map(function () {
@@ -731,7 +732,7 @@
           if (i === photoIndex) return;
           photoIndex = i;
           paintPhoto(true);
-          armPhoto();
+          holdPhoto();
         });
         garageTicks.appendChild(tick);
       });
@@ -777,15 +778,38 @@
       markTick();
     }
 
-    function armPhoto() {
+    function clearPhotoClock() {
       window.clearInterval(photoTimer);
+      window.clearTimeout(photoResume);
+      photoTimer = 0;
+      photoResume = 0;
+    }
+
+    function advancePhoto() {
+      var current = garageCars[garageIndex];
+      if (!current || !current.frames || current.frames.length < 2) return;
+      photoIndex = (photoIndex + 1) % current.frames.length;
+      paintPhoto(true);
+    }
+
+    function armPhoto() {
+      clearPhotoClock();
       var car = garageCars[garageIndex];
       if (reduceMotion || !car || !car.frames || car.frames.length < 2) return;
-      photoTimer = window.setInterval(function () {
-        var current = garageCars[garageIndex];
-        photoIndex = (photoIndex + 1) % current.frames.length;
-        paintPhoto(true);
-      }, 4800);
+      photoTimer = window.setInterval(advancePhoto, 4800);
+    }
+
+    function holdPhoto() {
+      window.clearInterval(photoTimer);
+      window.clearTimeout(photoResume);
+      photoTimer = 0;
+      var car = garageCars[garageIndex];
+      if (reduceMotion || !car || !car.frames || car.frames.length < 2) return;
+      photoResume = window.setTimeout(function () {
+        photoResume = 0;
+        advancePhoto();
+        armPhoto();
+      }, 8000);
     }
 
     function stepPhoto(dir) {
@@ -793,7 +817,7 @@
       if (!car || !car.frames || car.frames.length < 2) return;
       photoIndex = (photoIndex + dir + car.frames.length) % car.frames.length;
       paintPhoto(true);
-      armPhoto();
+      holdPhoto();
     }
 
     var garageSheet = garage.querySelector(".garage-sheet");
@@ -931,7 +955,7 @@
       if (garage) garage.classList.toggle("is-empty", !visible.length);
       if (garageScreen) garageScreen.hidden = !visible.length;
       if (!visible.length) {
-        window.clearInterval(photoTimer);
+        clearPhotoClock();
         return;
       }
       if (garageSlots[garageIndex] && garageSlots[garageIndex].hidden) {
@@ -963,7 +987,10 @@
       if (event.key === "ArrowLeft") { event.preventDefault(); stepPhoto(-1); }
     });
     garageStage.addEventListener("mouseenter", function () { window.clearInterval(photoTimer); });
-    garageStage.addEventListener("mouseleave", armPhoto);
+    garageStage.addEventListener("mouseleave", function () {
+      if (photoResume) return;
+      armPhoto();
+    });
 
     selectCar(0, false);
     measureHud();
